@@ -1,6 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +16,14 @@ nav a{color:#ddd;text-decoration:none;margin-left:14px}
 h1{font-family:Georgia,serif;font-size:clamp(42px,7vw,75px);line-height:1.05;font-weight:normal;margin:15px 0}
 p{color:#c2bdc7}
 .art{min-height:320px;border:1px solid #69583e;border-radius:180px 180px 20px 20px;background:radial-gradient(ellipse,#625040,#19171b 70%);display:grid;place-content:center;text-align:center}
-.art strong{font:150px Georgia;color:#e4c38a}
+.art strong{
+  font:italic 130px "Brush Script MT","Segoe Script",cursive;
+  color:#e4c38a;
+  letter-spacing:-5px;
+  display:inline-block;
+  line-height:1.3;
+}
+.art .gold{font-size:13px;letter-spacing:2px}
 .btn{display:inline-block;border:1px solid #e4c38a;padding:12px 18px;border-radius:30px;text-decoration:none;cursor:pointer;font-weight:bold;margin:6px 5px 6px 0}
 .primary{background:#e4c38a;color:#17130d}
 .secondary{color:#fff;background:transparent}
@@ -46,9 +51,7 @@ footer{padding:24px 0;border-top:1px solid #38343b;color:#bcb5c2;font-size:13px}
 <header class="wrap">
   <div class="logo">LEON <span>PORTRAIT STUDIO</span></div>
   <nav><a href="#portraits">Prices</a><a href="#about">About</a><a href="#enquiry">Enquiry</a></nav>
-</header>
-
-<main>
+</header><main>
 <section class="wrap hero">
   <div>
     <p class="gold">HANDCRAFTED WITH CARE</p>
@@ -57,10 +60,13 @@ footer{padding:24px 0;border-top:1px solid #38343b;color:#bcb5c2;font-size:13px}
     <a class="btn primary" href="#portraits">Explore prices ↗</a>
     <a class="btn secondary" href="#enquiry">Make an enquiry</a>
   </div>
-  <div class="art"><div><strong>L</strong><div class="gold">EVERY LINE TELLS A STORY</div></div></div>
-</section>
-
-<section id="portraits" class="wrap">
+  <div class="art">
+    <div>
+      <strong>SM</strong>
+      <div class="gold">EVERY LINE TELLS A STORY</div>
+    </div>
+  </div>
+</section><section id="portraits" class="wrap">
   <div class="heading"><p class="gold">OUR PORTRAITS</p><h2>Choose your size</h2><p>Starting prices are shown below. Final price may vary based on portrait details and number of people.</p></div>
   <div class="cards">
     <article class="card">
@@ -79,13 +85,9 @@ footer{padding:24px 0;border-top:1px solid #38343b;color:#bcb5c2;font-size:13px}
       <a class="btn secondary" href="#enquiry" onclick="chooseSize('A3 — ₹2,999 onwards')">Enquire about A3</a>
     </article>
   </div>
-</section>
-
-<section id="about" class="wrap">
+</section><section id="about" class="wrap">
   <div class="heading"><p class="gold">THE LEON TOUCH</p><h2>More than a picture.</h2><p>Tell us the story behind your photo, choose your preferred size, and we’ll help you plan a personal portrait. Framing and delivery details can be confirmed through WhatsApp.</p></div>
-</section>
-
-<section id="enquiry" class="wrap">
+</section><section id="enquiry" class="wrap">
   <div class="heading"><p class="gold">LET'S CREATE SOMETHING SPECIAL</p><h2>Send an enquiry</h2><p>Fill the form, then choose which WhatsApp number to contact.</p></div>
   <div class="order">
     <aside class="contactbox">
@@ -94,46 +96,41 @@ footer{padding:24px 0;border-top:1px solid #38343b;color:#bcb5c2;font-size:13px}
       <a href="https://wa.me/917358306857" target="_blank" rel="noopener">WhatsApp 1: +91 73583 06857 ↗</a>
       <a href="https://wa.me/917094462812" target="_blank" rel="noopener">WhatsApp 2: +91 70944 62812 ↗</a>
       <p class="small">Your enquiry message will be prepared for you to send. You can attach your reference photo in WhatsApp.</p>
-    </aside>
+    </aside><form class="form" id="orderForm">
+  <label for="name">Your name *</label>
+  <input id="name" required placeholder="Enter your name">
 
-    <form class="form" id="orderForm">
-      <label for="name">Your name *</label>
-      <input id="name" required placeholder="Enter your name">
+  <label for="phone">Your phone number *</label>
+  <input id="phone" type="tel" required placeholder="Your contact number">
 
-      <label for="phone">Your phone number *</label>
-      <input id="phone" type="tel" required placeholder="Your contact number">
+  <label for="size">Portrait size *</label>
+  <select id="size" required>
+    <option value="A4 — ₹1,999">A4 — ₹1,999</option>
+    <option value="A5 — ₹999 onwards">A5 — ₹999 onwards</option>
+    <option value="A3 — ₹2,999 onwards">A3 — ₹2,999 onwards</option>
+    <option value="Custom size — please quote">Custom size — please quote</option>
+  </select>
 
-      <label for="size">Portrait size *</label>
-      <select id="size" required>
-        <option>A4 — ₹1,999</option>
-        <option>A5 — ₹999 onwards</option>
-        <option>A3 — ₹2,999 onwards</option>
-        <option>Custom size — please quote</option>
-      </select>
+  <label for="people">Number of people in portrait</label>
+  <select id="people">
+    <option>1 person</option><option>2 people</option>
+    <option>3 people</option><option>4+ people</option>
+  </select>
 
-      <label for="people">Number of people in portrait</label>
-      <select id="people">
-        <option>1 person</option><option>2 people</option>
-        <option>3 people</option><option>4+ people</option>
-      </select>
+  <label for="occasion">Occasion</label>
+  <input id="occasion" placeholder="Birthday, anniversary, gift...">
 
-      <label for="occasion">Occasion</label>
-      <input id="occasion" placeholder="Birthday, anniversary, gift...">
+  <label for="details">Additional details *</label>
+  <textarea id="details" required placeholder="Describe the portrait you want"></textarea>
 
-      <label for="details">Additional details *</label>
-      <textarea id="details" required placeholder="Describe the portrait you want"></textarea>
+  <button class="btn primary" type="submit">WhatsApp 1 — Send enquiry</button>
+  <button class="btn secondary" type="button" onclick="sendToBoth()">Prepare for both numbers</button>
+  <p class="small">For both contacts, send the first WhatsApp message, return to this page, then send it to the second contact.</p>
+</form>
 
-      <button class="btn primary" type="submit">WhatsApp 1 — Send enquiry</button>
-      <button class="btn secondary" type="button" onclick="sendToBoth()">Prepare for both numbers</button>
-      <p class="small">For both contacts, send the first WhatsApp message, return to this page, then send it to the second contact.</p>
-    </form>
   </div>
 </section>
-</main>
-
-<footer><div class="wrap">© <span id="year"></span> LEON Portrait Studio · Handcrafted with care</div></footer>
-
-<script>
+</main><footer><div class="wrap">© <span id="year"></span> LEON Portrait Studio · Handcrafted with care</div></footer><script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
 function chooseSize(value) {
@@ -144,14 +141,14 @@ function getMessage() {
   const form = document.getElementById('orderForm');
   if (!form.reportValidity()) return null;
 
-  return "Hello LEON Portrait Studio! I would like to enquire about a portrait.\\n\\n"
-    + "Name: " + document.getElementById('name').value + "\\n"
-    + "My phone: " + document.getElementById('phone').value + "\\n"
-    + "Portrait size: " + document.getElementById('size').value + "\\n"
-    + "People: " + document.getElementById('people').value + "\\n"
-    + "Occasion: " + (document.getElementById('occasion').value || "Not specified") + "\\n"
+  return "Hello LEON Portrait Studio! I would like to enquire about a portrait.\n\n"
+    + "Name: " + document.getElementById('name').value + "\n"
+    + "My phone: " + document.getElementById('phone').value + "\n"
+    + "Portrait size: " + document.getElementById('size').value + "\n"
+    + "People: " + document.getElementById('people').value + "\n"
+    + "Occasion: " + (document.getElementById('occasion').value || "Not specified") + "\n"
     + "Details: " + document.getElementById('details').value
-    + "\\n\\nI can attach my reference photo in this chat.";
+    + "\n\nI can attach my reference photo in this chat.";
 }
 
 function openWhatsApp(number, message) {
@@ -170,6 +167,5 @@ function sendToBoth() {
   openWhatsApp("917358306857", message);
   alert("Send the message in WhatsApp first. Then return to this website and tap 'Prepare for both numbers' again to open the second contact.");
 }
-</script>
-</body>
-</html>
+</script></body>
+  </html>
