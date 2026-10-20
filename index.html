@@ -3,51 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LEON Portrait Studio</title>
+<meta name="theme-color" content="#101015">
+<title>LEON Portrait Studio | Handcrafted Portraits</title>
+
 <style>
+:root{
+  --bg:#101015;
+  --panel:#1b1a21;
+  --gold:#e4c38a;
+  --text:#f8f5f1;
+  --muted:#c2bdc7;
+  --line:#38343b;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#101015;color:#f8f5f1;font-family:Arial,sans-serif;line-height:1.6}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,sans-serif;line-height:1.6;
+}
 .wrap{width:90%;max-width:1050px;margin:auto}
-header{padding:22px 0;border-bottom:1px solid #38343b;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{
+  padding:22px 0;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;
+  gap:15px;flex-wrap:wrap;
+}
 .logo{font-weight:bold;letter-spacing:2px}
-.logo span,h1 em,.gold{color:#e4c38a}
-nav a{color:#ddd;text-decoration:none;margin-left:14px}
-.hero{padding:65px 0;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
-h1{font-family:Georgia,serif;font-size:clamp(42px,7vw,75px);line-height:1.05;font-weight:normal;margin:15px 0}
-p{color:#c2bdc7}
-.art{min-height:320px;border:1px solid #69583e;border-radius:180px 180px 20px 20px;background:radial-gradient(ellipse,#625040,#19171b 70%);display:grid;place-content:center;text-align:center}
-.art strong{font:italic 130px "Brush Script MT","Segoe Script",cursive;color:#e4c38a;letter-spacing:-5px;display:inline-block;line-height:1.3}
+.logo span,h1 em,.gold{color:var(--gold)}
+nav{display:flex;gap:15px;flex-wrap:wrap}
+nav a{color:#ddd;text-decoration:none;font-size:14px}
+nav a:hover{color:var(--gold)}
+.hero{
+  padding:65px 0;display:grid;grid-template-columns:1fr 1fr;
+  gap:30px;align-items:center;
+}
+h1{
+  font-family:Georgia,serif;font-size:clamp(42px,7vw,75px);
+  line-height:1.05;font-weight:normal;margin:15px 0;
+}
+p{color:var(--muted)}
+.art{
+  min-height:320px;border:1px solid #69583e;
+  border-radius:180px 180px 20px 20px;
+  background:radial-gradient(ellipse,#625040,#19171b 70%);
+  display:grid;place-content:center;text-align:center;
+  box-shadow:0 0 35px #e4c38a12;
+}
+.art strong{
+  font:italic 130px "Brush Script MT","Segoe Script",cursive;
+  color:var(--gold);letter-spacing:-5px;
+  display:inline-block;line-height:1.3;
+}
 .art .gold{font-size:13px;letter-spacing:2px}
-.btn{display:inline-block;border:1px solid #e4c38a;padding:12px 18px;border-radius:30px;text-decoration:none;cursor:pointer;font-weight:bold;margin:6px 5px 6px 0}
-.primary{background:#e4c38a;color:#17130d}
+.btn{
+  display:inline-block;border:1px solid var(--gold);
+  padding:12px 18px;border-radius:30px;text-decoration:none;
+  cursor:pointer;font-weight:bold;margin:6px 5px 6px 0;
+}
+.primary{background:var(--gold);color:#17130d}
 .secondary{color:#fff;background:transparent}
+.btn:hover{transform:translateY(-2px);transition:.2s}
 section{padding:45px 0}
-.heading{text-align:center;margin:0 auto 28px;max-width:650px}
-h2{font:normal clamp(30px,5vw,45px) Georgia}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card,.form,.contactbox{padding:24px;background:#1b1a21;border:1px solid #37343d;border-radius:16px}
-.card.featured{border-color:#e4c38a}
-.price{font-size:30px;font-weight:bold;color:#e4c38a}
-.small{font-size:13px;color:#bcb5c2}
-.card .btn{width:100%;text-align:center}
-.order{display:grid;grid-template-columns:1fr 1.3fr;gap:20px;align-items:start}
-.contactbox a{display:block;color:#e4c38a;padding:12px 0;overflow-wrap:anywhere;text-decoration:none}
+.heading{text-align:center;margin:0 auto 28px;max-width:700px}
+h2{font:normal clamp(30px,5vw,45px) Georgia;margin:8px 0}
+.tabs{
+  display:flex;justify-content:center;gap:10px;
+  flex-wrap:wrap;margin-bottom:25px;
+}
+.tab{
+  background:var(--panel);color:#eee;border:1px solid #48434e;
+  border-radius:30px;padding:12px 20px;cursor:pointer;
+  font-weight:bold;
+}
+.tab.active{background:var(--gold);color:#17130d;border-color:var(--gold)}
+.category{display:none}
+.category.active{display:block;animation:fade .25s ease}
+@keyframes fade{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.price-card{
+  padding:22px;background:var(--panel);
+  border:1px solid var(--line);border-radius:16px;margin:16px 0;
+}
+.price-card h3{color:var(--gold);margin:0 0 12px;font-size:21px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:290px}
+th,td{
+  text-align:left;padding:13px 10px;
+  border-bottom:1px solid #3a3540;
+}
+th{
+  color:var(--gold);font-size:13px;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+td{color:#f3edf5}
+td:not(:first-child){font-weight:bold}
+.price-note{
+  font-size:13px;color:var(--muted);margin-top:20px;
+  padding:15px;border-left:2px solid var(--gold);
+  background:#1b1a21;border-radius:5px;
+}
+.order{
+  display:grid;grid-template-columns:1fr 1.3fr;
+  gap:20px;align-items:start;
+}
+.contactbox,.form{
+  padding:24px;background:var(--panel);
+  border:1px solid var(--line);border-radius:16px;
+}
+.contactbox a{
+  display:block;color:var(--gold);padding:12px 0;
+  overflow-wrap:anywhere;text-decoration:none;
+}
 label{display:block;font-size:14px;margin:12px 0 6px}
-input,select,textarea{width:100%;padding:12px;border:1px solid #48434e;border-radius:9px;background:#101015;color:#fff}
-textarea{min-height:90px}
+input,select,textarea{
+  width:100%;padding:12px;border:1px solid #48434e;
+  border-radius:9px;background:var(--bg);color:#fff;
+  font:inherit;
+}
+textarea{min-height:100px;resize:vertical}
 button{font:inherit}
 form button{width:100%;margin-top:16px}
-footer{padding:24px 0;border-top:1px solid #38343b;color:#bcb5c2;font-size:13px}
+.small{font-size:13px;color:#bcb5c2}
+footer{
+  padding:24px 0;border-top:1px solid var(--line);
+  color:#bcb5c2;font-size:13px;margin-top:20px;
+}
 @media(max-width:700px){
-.hero,.order{grid-template-columns:1fr}
-.cards{grid-template-columns:1fr}
-.hero{padding:40px 0}
-.art{min-height:250px}
-nav a{margin-left:7px;font-size:13px}
+  .hero,.order{grid-template-columns:1fr}
+  .hero{padding:40px 0}
+  .art{min-height:250px}
+  nav{gap:10px}
+  nav a{font-size:13px}
+  .tab{flex:1 1 120px;padding:11px 12px}
+  .price-card{padding:15px}
+  th,td{padding:11px 7px;font-size:14px}
 }
 </style>
 </head>
+
 <body>
 
 <header class="wrap">
@@ -60,14 +154,20 @@ nav a{margin-left:7px;font-size:13px}
 </header>
 
 <main>
+
 <section class="wrap hero">
   <div>
     <p class="gold">HANDCRAFTED WITH CARE</p>
     <h1>Your memories,<br><em>drawn by hand.</em></h1>
-    <p>Turn your favourite photo into a beautiful hand-drawn portrait. A thoughtful gift for birthdays, anniversaries, family and special moments.</p>
+    <p>
+      Turn your favourite photo into a beautiful hand-drawn portrait.
+      A thoughtful gift for birthdays, anniversaries, family and
+      the special moments you want to remember forever.
+    </p>
     <a class="btn primary" href="#portraits">Explore prices ↗</a>
     <a class="btn secondary" href="#enquiry">Make an enquiry</a>
   </div>
+
   <div class="art">
     <div>
       <strong>SM</strong>
@@ -79,42 +179,118 @@ nav a{margin-left:7px;font-size:13px}
 <section id="portraits" class="wrap">
   <div class="heading">
     <p class="gold">OUR PORTRAITS</p>
-    <h2>Choose your size</h2>
-    <p>Starting prices are shown below. Final price may vary based on portrait details and number of people.</p>
+    <h2>Choose your portrait</h2>
+    <p>
+      Explore our Classic and Signature portrait options.
+      Select a category below to view the prices.
+    </p>
   </div>
 
-  <div class="cards">
-    <article class="card">
-      <p class="gold">A5 · COMPACT</p>
-      <h3>Small Portrait</h3>
-      <div class="price">₹999</div>
-      <p>Starting price · A thoughtful little keepsake.</p>
-      <a class="btn secondary" href="#enquiry" onclick="chooseSize('A5 — ₹999 onwards')">Enquire about A5</a>
-    </article>
-
-    <article class="card featured">
-      <p class="gold">A4 · POPULAR CHOICE</p>
-      <h3>Signature Portrait</h3>
-      <div class="price">₹1,999</div>
-      <p>Classic A4 portrait, ideal for gifting and framing.</p>
-      <a class="btn primary" href="#enquiry" onclick="chooseSize('A4 — ₹1,999')">Enquire about A4</a>
-    </article>
-
-    <article class="card">
-      <p class="gold">A3 · LARGE</p>
-      <h3>Statement Portrait</h3>
-      <div class="price">₹2,999</div>
-      <p>Starting price · More room for beautiful details.</p>
-      <a class="btn secondary" href="#enquiry" onclick="chooseSize('A3 — ₹2,999 onwards')">Enquire about A3</a>
-    </article>
+  <div class="tabs" role="tablist" aria-label="Portrait categories">
+    <button class="tab active" type="button" data-tab="single"
+      role="tab" aria-selected="true">Single Face</button>
+    <button class="tab" type="button" data-tab="two"
+      role="tab" aria-selected="false">Two Faces</button>
+    <button class="tab" type="button" data-tab="family"
+      role="tab" aria-selected="false">Family Portrait</button>
   </div>
+
+  <!-- SINGLE FACE -->
+  <div class="category active" id="single" role="tabpanel">
+    <div class="price-card">
+      <h3>Single Face Portrait</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Size</th><th>Classic</th><th>Signature</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A5</td><td>₹799</td><td>—</td></tr>
+            <tr><td>A4</td><td>₹1,499</td><td>₹2,499</td></tr>
+            <tr><td>A3</td><td>₹2,499</td><td>₹3,999</td></tr>
+            <tr><td>A2</td><td>₹3,999</td><td>₹5,999</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn secondary choose" type="button"
+        data-category="Single Face Portrait">Enquire about Single Face</button>
+    </div>
+  </div>
+
+  <!-- TWO FACES -->
+  <div class="category" id="two" role="tabpanel">
+    <div class="price-card">
+      <h3>Two Face Portrait</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Size</th><th>Classic</th><th>Signature</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A4</td><td>₹2,499</td><td>₹3,499</td></tr>
+            <tr><td>A3</td><td>₹3,999</td><td>₹5,499</td></tr>
+            <tr><td>A2</td><td>₹5,999</td><td>₹7,999</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn secondary choose" type="button"
+        data-category="Two Face Portrait">Enquire about Two Faces</button>
+    </div>
+  </div>
+
+  <!-- FAMILY -->
+  <div class="category" id="family" role="tabpanel">
+    <div class="price-card">
+      <h3>Family Portrait · A3 Size</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>People</th><th>Classic</th><th>Signature</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>3 faces</td><td>₹4,499</td><td>₹6,499</td></tr>
+            <tr><td>4 faces</td><td>₹5,499</td><td>₹7,999</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <h3>Family Portrait · A2 Size</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>People</th><th>Classic</th><th>Signature</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>3 faces</td><td>₹6,999</td><td>₹9,499</td></tr>
+            <tr><td>4 faces</td><td>₹8,499</td><td>₹10,999</td></tr>
+            <tr><td>5 faces</td><td>₹9,999</td><td>₹12,999</td></tr>
+            <tr><td>6 faces</td><td>₹11,499</td><td>₹14,999</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button class="btn secondary choose" type="button"
+      data-category="Family Portrait">Enquire about Family Portrait</button>
+  </div>
+
+  <p class="price-note">
+    Frame and delivery charges extra. Final pricing may vary depending
+    on drawing effort, material costs and delivery expenses.
+  </p>
 </section>
 
 <section id="about" class="wrap">
   <div class="heading">
     <p class="gold">THE LEON TOUCH</p>
     <h2>More than a picture.</h2>
-    <p>Tell us the story behind your photo, choose your preferred size, and we’ll help you plan a personal portrait. Framing and delivery details can be confirmed through WhatsApp.</p>
+    <p>
+      Every portrait is a personal way to preserve a memory.
+      Tell us about your idea, select your preferred size and style,
+      and contact us to discuss your portrait.
+    </p>
   </div>
 </section>
 
@@ -122,15 +298,16 @@ nav a{margin-left:7px;font-size:13px}
   <div class="heading">
     <p class="gold">LET'S CREATE SOMETHING SPECIAL</p>
     <h2>Send an enquiry</h2>
-    <p>Fill in your details to prepare your enquiry.</p>
+    <p>Complete the form to prepare your WhatsApp enquiry.</p>
   </div>
 
   <div class="order">
     <aside class="contactbox">
       <h3>Contact the studio</h3>
-      <p>Choose WhatsApp or email to contact LEON Portrait Studio.</p>
+      <p>Have a question or a portrait idea? Contact us directly.</p>
 
-      <a href="https://wa.me/917094462812" target="_blank" rel="noopener">
+      <a href="https://wa.me/917094462812"
+         target="_blank" rel="noopener">
         WhatsApp: +91 70944 62812 ↗
       </a>
 
@@ -138,86 +315,149 @@ nav a{margin-left:7px;font-size:13px}
         Email: Supriyan9500@gmail.com ↗
       </a>
 
-      <p class="small">You can attach your reference photo when contacting us through WhatsApp or email.</p>
+      <p class="small">
+        You can attach your reference photo in your WhatsApp conversation.
+      </p>
     </aside>
 
     <form class="form" id="orderForm">
       <label for="name">Your name *</label>
-      <input id="name" required placeholder="Enter your name">
+      <input id="name" required autocomplete="name"
+        placeholder="Enter your name">
 
       <label for="phone">Your phone number *</label>
-      <input id="phone" type="tel" required placeholder="Your contact number">
+      <input id="phone" type="tel" required autocomplete="tel"
+        placeholder="Your contact number">
+
+      <label for="category">Portrait category *</label>
+      <select id="category" required>
+        <option value="Single Face Portrait">Single Face Portrait</option>
+        <option value="Two Face Portrait">Two Face Portrait</option>
+        <option value="Family Portrait">Family Portrait</option>
+      </select>
 
       <label for="size">Portrait size *</label>
       <select id="size" required>
-        <option value="A4 — ₹1,999">A4 — ₹1,999</option>
-        <option value="A5 — ₹999 onwards">A5 — ₹999 onwards</option>
-        <option value="A3 — ₹2,999 onwards">A3 — ₹2,999 onwards</option>
-        <option value="Custom size — please quote">Custom size — please quote</option>
+        <option value="A5">A5</option>
+        <option value="A4" selected>A4</option>
+        <option value="A3">A3</option>
+        <option value="A2">A2</option>
+        <option value="Custom size">Custom size — please quote</option>
       </select>
 
-      <label for="people">Number of people in portrait</label>
+      <label for="style">Portrait style *</label>
+      <select id="style" required>
+        <option value="Classic">Classic</option>
+        <option value="Signature">Signature</option>
+        <option value="Not sure yet">Not sure yet</option>
+      </select>
+
+      <label for="people">Number of people</label>
       <select id="people">
-        <option>1 person</option>
-        <option>2 people</option>
-        <option>3 people</option>
-        <option>4+ people</option>
+        <option value="1 person">1 person</option>
+        <option value="2 people">2 people</option>
+        <option value="3 faces">3 faces</option>
+        <option value="4 faces">4 faces</option>
+        <option value="5 faces">5 faces</option>
+        <option value="6 faces">6 faces</option>
       </select>
 
       <label for="occasion">Occasion</label>
       <input id="occasion" placeholder="Birthday, anniversary, gift...">
 
       <label for="details">Additional details *</label>
-      <textarea id="details" required placeholder="Describe the portrait you want"></textarea>
+      <textarea id="details" required
+        placeholder="Describe the portrait you want"></textarea>
 
-      <button class="btn primary" type="submit">WhatsApp — Send enquiry</button>
-      <p class="small">Your enquiry will open in WhatsApp. Check the message and press Send.</p>
+      <button class="btn primary" type="submit">
+        WhatsApp — Send enquiry
+      </button>
+
+      <p class="small">
+        WhatsApp opens with your message prepared. Review it and press
+        Send. Your enquiry is not sent automatically.
+      </p>
     </form>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap">© <span id="year"></span> LEON Portrait Studio · Handcrafted with care</div>
+  <div class="wrap">
+    © <span id="year"></span> LEON Portrait Studio · Handcrafted with care
+  </div>
 </footer>
 
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 
-function chooseSize(value) {
-  document.getElementById('size').value = value;
-}
+/* Category tabs */
+document.querySelectorAll(".tab").forEach(function(button){
+  button.addEventListener("click",function(){
+    document.querySelectorAll(".tab").forEach(function(tab){
+      tab.classList.remove("active");
+      tab.setAttribute("aria-selected","false");
+    });
 
-function getMessage() {
-  const form = document.getElementById('orderForm');
-  if (!form.reportValidity()) return null;
+    document.querySelectorAll(".category").forEach(function(panel){
+      panel.classList.remove("active");
+    });
 
-  return "Hello LEON Portrait Studio! I would like to enquire about a portrait.\n\n"
-    + "Name: " + document.getElementById('name').value + "\n"
-    + "My phone: " + document.getElementById('phone').value + "\n"
-    + "Portrait size: " + document.getElementById('size').value + "\n"
-    + "People: " + document.getElementById('people').value + "\n"
-    + "Occasion: " + (document.getElementById('occasion').value || "Not specified") + "\n"
-    + "Details: " + document.getElementById('details').value
-    + "\n\nI can attach my reference photo in this chat.";
-}
+    button.classList.add("active");
+    button.setAttribute("aria-selected","true");
+    document.getElementById(button.dataset.tab).classList.add("active");
+  });
+});
 
-function openWhatsApp(number, message) {
-  window.open(
-    "https://wa.me/" + number + "?text=" + encodeURIComponent(message),
-    "_blank"
-  );
-}
+/* Enquiry buttons */
+document.querySelectorAll(".choose").forEach(function(button){
+  button.addEventListener("click",function(){
+    const category = button.dataset.category;
+    document.getElementById("category").value = category;
 
-document.getElementById('orderForm').addEventListener('submit', function(event) {
+    if(category === "Single Face Portrait"){
+      document.getElementById("people").value = "1 person";
+    }else if(category === "Two Face Portrait"){
+      document.getElementById("people").value = "2 people";
+    }else{
+      document.getElementById("people").value = "3 faces";
+    }
+
+    document.getElementById("enquiry").scrollIntoView({
+      behavior:"smooth"
+    });
+  });
+});
+
+/* WhatsApp enquiry form */
+document.getElementById("orderForm").addEventListener("submit",function(event){
   event.preventDefault();
-  const message = getMessage();
 
-  if (message) {
-    openWhatsApp("917094462812", message);
+  const form = event.currentTarget;
+  if(!form.reportValidity()) return;
+
+  function val(id){
+    return document.getElementById(id).value.trim();
   }
+
+  const message =
+    "Hello LEON Portrait Studio! I would like to enquire about a portrait.\n\n" +
+    "Name: " + val("name") + "\n" +
+    "My phone: " + val("phone") + "\n" +
+    "Category: " + val("category") + "\n" +
+    "Size: " + val("size") + "\n" +
+    "Style: " + val("style") + "\n" +
+    "People: " + val("people") + "\n" +
+    "Occasion: " + (val("occasion") || "Not specified") + "\n" +
+    "Details: " + val("details") + "\n\n" +
+    "I can attach my reference photo in this chat.";
+
+  const whatsappURL =
+    "https://wa.me/917094462812?text=" + encodeURIComponent(message);
+
+  window.open(whatsappURL,"_blank");
 });
 </script>
 
 </body>
-</html>
+  </html>
